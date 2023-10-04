@@ -9,7 +9,7 @@ type CartItemProps = {
 };
 
 const CartItem = ({ id, quantity }: CartItemProps) => {
-  const { removeFromCart, getItemQuantity } = useShoppingCart();
+  const { removeFromCart } = useShoppingCart();
   const itemInCart = storeItems.find((item) => item.id === id);
 
   return (
@@ -31,14 +31,14 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
               </div>
             </div>
             <div className="flex justify-center items-center italic">
-              x{getItemQuantity(id)}
+              x{quantity}
             </div>
           </div>
 
           {/* remove */}
           <div className="flex items-center flex-1 justify-end">
             <div className="text-[14px] font-medium pr-2">
-              {formatCurrency(getItemQuantity(id) * itemInCart.price)}
+              {formatCurrency(quantity * itemInCart.price)}
             </div>
             <div
               className="bg-white border w-[18px] h-[18px]

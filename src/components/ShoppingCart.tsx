@@ -43,7 +43,7 @@ const ShoppingCart = () => {
                 (totalCost, item) =>
                   totalCost +
                   item.quantity *
-                    storeItems.find((i) => i.id === item.id).price,
+                    (storeItems.find((i) => i.id === item.id)?.price || 0),
                 0
               )
             )}
